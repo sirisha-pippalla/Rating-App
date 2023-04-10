@@ -34,7 +34,7 @@ app.post('/film', async(req, res)=>{
 });
 
 app.get('/filmslist', async(req, res)=>{
-    console.log('test')
+    // console.log('test')
     try{
         const filmlist = await filmData.find();
         
