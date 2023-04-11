@@ -20,7 +20,7 @@ app.get('/', (req, res)=>{
     res.send("<h1>its backend</h1>")
 })
 
-//create entry
+//create entryyy76h
 app.post('/film', async(req, res)=>{
     console.log(typeof req.body)
     try{
