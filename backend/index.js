@@ -20,7 +20,7 @@ app.get('/', (req, res)=>{
     res.send("<h1>its backend</h1>")
 })
 
-//create entryyy76h
+//create entry
 app.post('/film', async(req, res)=>{
     console.log(typeof req.body)
     try{
@@ -42,6 +42,23 @@ app.get('/filmslist', async(req, res)=>{
     }catch(err){
         console.log(err.message);
         res.status(404).json({message:err.message})
+    }
+});
+
+app.put('/updatelist', async(req, res)=>{
+    try {
+        const {id} = req.params;
+        const data = await filmData.findByIdAndUpdate(id, req.body);
+        if(!data){
+            res.status(400).json({message:"film is not found"})
+        };
+        res.status(200).json({
+            message:"film updated successfully",
+            data
+        })
+    } catch (error) {
+        console.log(err.message);
+        res.status(404).json({message:error.message})
     }
 })
 
